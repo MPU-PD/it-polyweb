@@ -1,0 +1,352 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[final]{beamer}
+
+% Добавляем поддержку русского языка
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\setbeamercolor{block title}{fg=ngreen,bg=white} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
+\setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
+% Many more colors are available for use in beamerthemeconfposter.sty
+
+%-----------------------------------------------------------
+% Define the column widths and overall poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
+% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be (2*onecolwid)+sepwid = 0.464
+% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{48in} % A0 width: 46.8in
+\setlength{\paperheight}{36in} % A0 height: 33.1in
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+%-----------------------------------------------------------
+
+\usepackage{graphicx}  % Required for including images
+
+\usepackage{booktabs} % Top and bottom rules for tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\title{ГОСТДОК: Автоматизация форматирования документов по стандартам ГОСТ} % Poster title
+
+\author{Студенческая веб-студия PolyWeb} % Author(s)
+
+\institute{ФГАОУ ВО «Московский политехнический университет»} % Institution(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+
+\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The first column
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Введение}
+
+В современном мире эффективность и стандартизация документации являются важными аспектами успешной деятельности организаций. Многие компании и образовательные учреждения требуют строгого соблюдения стандартов оформления документов, таких как ГОСТ.
+
+Ручное форматирование документов занимает много времени и часто приводит к ошибкам, что снижает производительность и может негативно сказываться на качестве.
+
+\end{block}
+
+%------------------------------------------------
+
+\begin{block}{Актуальность проекта}
+
+Многие пользователи (студенты, научные сотрудники, специалисты по документообороту) сталкиваются с проблемой оформления документов в соответствии с ГОСТ и другими стандартами.
+
+Исследование стейкхолдеров выявило частые проблемы:
+\begin{itemize}
+\item Сложности с форматированием заголовков, таблиц, изображений
+\item Ошибки компиляции и синтаксические ошибки в LaTeX
+\item Необходимость строгого соблюдения стандартов
+\end{itemize}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{Цели проекта}
+
+Проект ГОСТДОК направлен на решение следующих задач:
+\begin{itemize}
+\item Создать сервис для автоматического форматирования документов по ГОСТ
+\item Обеспечить доступ к высококачественной верстке для пользователей с разным уровнем подготовки
+\item Решить проблемы, связанные с форматированием, ошибками компиляции и сложностью использования LaTeX
+\end{itemize}
+
+\end{alertblock}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the first column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\twocolwid} % Begin a column which is two columns wide (column 2)
+
+\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column
+
+\begin{column}{\onecolwid}\vspace{-.6in} % The first column within column 2 (column 2.1)
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Суть проекта}
+
+ГОСТДОК — веб-сервис для автоматического форматирования документов по стандартам ГОСТ и другим требуемым шаблонам с использованием LaTeX или через удобный веб-интерфейс.
+
+Основные задачи проекта:
+\begin{itemize}
+\item Разработка веб-приложения с функционалом автоматического форматирования
+\item Интеграция с LaTeX для обеспечения высококачественной верстки документов
+\item Создание пользовательского интерфейса для удобства работы без опыта работы с LaTeX
+\item Поддержка различных шаблонов и стандартов, включая ГОСТ
+\end{itemize}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.1
+
+\begin{column}{\onecolwid}\vspace{-.6in} % The second column within column 2 (column 2.2)
+
+%----------------------------------------------------------------------------------------
+%	METHODS
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Этапы реализации}
+
+Проект реализуется в несколько этапов:
+
+\begin{enumerate}
+\item Анализ требований и разработка концепции
+\item Проведение исследования со стейкхолдерами и аналитики по проекту
+\item Создание архитектуры веб-приложения
+\item Разработка пользовательского интерфейса и интеграция с LaTeX
+\item Тестирование и исправление ошибок
+\item Запуск сервиса и получение обратной связи от пользователей
+\end{enumerate}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2 - any content after this will now take up 2 columns width
+
+%----------------------------------------------------------------------------------------
+%	IMPORTANT RESULT
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{Промежуточный продуктовый результат}
+
+На данном этапе реализации проекта достигнуты следующие ключевые результаты:
+\begin{itemize}
+\item Разработан базовый веб-интерфейс с регистрацией и управлением документами
+\item Интегрирована возможность загрузки и компиляции текста в PDF с использованием LaTeX
+\item Создан каталог шаблонов, поддерживающий стандарты ГОСТ
+\item Добавлена поддержка вставки изображений, таблиц и работы с библиографией
+\end{itemize}
+
+\end{alertblock} 
+
+%----------------------------------------------------------------------------------------
+
+\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column again
+
+\begin{column}{\onecolwid} % The first column within column 2 (column 2.1)
+
+%----------------------------------------------------------------------------------------
+%	TECHNOLOGIES
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Технологии}
+
+Для реализации проекта используются следующие технологии:
+
+\begin{itemize}
+\item \textbf{Серверная часть:} Python, FastAPI
+\item \textbf{Клиентская часть:} JavaScript, React
+\item \textbf{Система верстки:} LaTeX
+\end{itemize}
+
+Архитектура системы спроектирована с учетом масштабируемости и удобства интеграции новых функций.
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.1
+
+\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
+
+%----------------------------------------------------------------------------------------
+%	RESULTS
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Результаты}
+
+\begin{table}
+\vspace{2ex}
+\begin{tabular}{l l}
+\toprule
+\textbf{Компонент} & \textbf{Статус}\\
+\midrule
+Концепция & Завершено \\
+Документация & Завершено \\
+Архитектура & Завершено \\
+Серверная часть & В процессе \\
+Пользовательский интерфейс & В процессе \\
+Интеграция & В процессе \\
+\bottomrule
+\end{tabular}
+\caption{Статус компонентов проекта}
+\end{table}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+%	FUNCTIONAL CAPABILITIES
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Функциональные возможности}
+
+Реализованные функции сервиса:
+\begin{itemize}
+\item Автоматическое форматирование документов по ГОСТ
+\item Поддержка вставки изображений, таблиц и работы с библиографией
+\item Функция автоматической проверки синтаксиса и предоставления подсказок
+\item Каталог шаблонов для различных типов документов
+\item Экспорт документов в формате PDF
+\end{itemize}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Заключение}
+
+Проект ГОСТДОК успешно решает проблему автоматического форматирования документов в соответствии со стандартами ГОСТ. Достигнуты значительные успехи в анализе потребностей пользователей и разработке концепции сервиса.
+
+Планы дальнейшей работы:
+\begin{itemize}
+\item Расширение функциональности приложения
+\item Проведение тестирования для выявления и устранения ошибок
+\item Оптимизация производительности
+\item Подготовка итоговой документации и развертывание приложения
+\end{itemize}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Список использованных источников}
+
+\begin{enumerate}
+\item Лампорт Л. LaTeX: система подготовки документов. Пользовательская документация. – М.: Вильямс, 2019. – 600 с.
+\item Статьи и публикации на Overleaf.com. Современные практики использования LaTeX в веб-среде [Электронный ресурс]. – Режим доступа: https://www.overleaf.com/
+\end{enumerate}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
+
+\begin{block}{Благодарности}
+
+\small{\rmfamily{Выражаем благодарность Московскому политехническому университету за поддержку проекта и предоставление ресурсов для его реализации.}} \\
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
+\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
+
+\begin{alertblock}{Контактная информация}
+
+\begin{itemize}
+\item Партнер проекта: ФГАОУ ВО «Московский политехнический университет»
+\item Контактное лицо: Даньшина Марина Владимировна
+\item Email: contact@gostdoc.ru
+\item Веб: http://gostdoc.ru
+\end{itemize}
+
+\end{alertblock}
+
+\begin{center}
+\begin{tabular}{c}
+\end{tabular}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the third column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+
+\end{document}
